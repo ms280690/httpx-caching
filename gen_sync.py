@@ -33,8 +33,7 @@ unasync_files(
                 "aget": "get",
                 "aset": "set",
                 "adelete": "delete",
-            }
+            },
         ),
     ],
 )
-

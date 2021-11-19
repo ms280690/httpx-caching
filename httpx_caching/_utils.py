@@ -77,9 +77,9 @@ async def async_callback_generator(
     try:
         yielded = next(gen)
         while True:
-            print("action:", yielded)
+            logging.debug("action:", yielded)
             to_send = await callback(yielded)
-            print("result:", to_send)
+            logging.debug("result:", to_send)
             yielded = gen.send(to_send)
     except StopIteration as e:
         return e.value
@@ -94,9 +94,9 @@ def sync_callback_generator(
     try:
         yielded = next(gen)
         while True:
-            print("action:", yielded)
+            logging.debug("action:", yielded)
             to_send = callback(yielded)
-            print("result:", to_send)
+            logging.debug("result:", to_send)
             yielded = gen.send(to_send)
     except StopIteration as e:
         return e.value
