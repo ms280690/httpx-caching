@@ -122,7 +122,7 @@ class SyncCachingTransport(httpx.BaseTransport):
         response.stream = wrapped_stream
 
         def callback(response_body: bytes):
-            logging.debug("saving to cache:", key)
+            logging.debug(f"saving to cache: {key}")
             self.cache.set(key, response, vary_header_values, response_body)
 
         response.stream.callback = callback

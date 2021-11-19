@@ -271,7 +271,7 @@ def try_from_server_policy(
     cacheable_methods: Iterable[str],
 ) -> Generator[IOAction, Response, Tuple[Response, Source]]:
     cache_key = get_cache_key(request)
-    logging.debug("we have this from the cache:", cached_response)
+    logging.debug(f"we have this from the cache: {cached_response}")
     updated_headers = request.headers.copy()
     if cached_response:
         # Add conditional headers based on cached response
